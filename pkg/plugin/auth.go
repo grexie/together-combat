@@ -23,6 +23,7 @@ const (
 	TokenTypeAuth TokenType = "auth"
 	TokenTypeRefresh TokenType = "refresh"
 	TokenTypeAccess TokenType = "access"
+	TokenTypeKeyManagement TokenType = "key"
 )
 
 type Permission = string
