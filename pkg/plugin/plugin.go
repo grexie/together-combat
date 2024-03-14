@@ -31,6 +31,8 @@ type TogetherServer interface {
 
 	App() *fiber.App
 
+	RequestContext(context.Context, *http.Request) (context.Context, error)
+
 	LookupPlugin(name string, export string) (any, error)
 
 	InitialURL() string
