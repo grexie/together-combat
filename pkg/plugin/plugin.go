@@ -49,6 +49,8 @@ type TogetherServer interface {
 	ShowHelp(executableName string) error
 
 	DB() *mongo.Database
+	OnDB(func() error)
+	EnsureIndex(ctx context.Context, collectionName string, model mongo.IndexModel)
 	Redis() *redis.Client
 
 	Schema() *graphql.Schema
