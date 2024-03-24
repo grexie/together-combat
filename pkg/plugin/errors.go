@@ -33,7 +33,7 @@ func NewError(httpStatus int, code string, message string, args ...any) error {
 			"httpStatus": httpStatus,
 			"code": code,
 			"message": source.Error(),
-		}
+		},
 	}
 	return err
 }
