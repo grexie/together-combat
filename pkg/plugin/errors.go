@@ -1,7 +1,7 @@
 package plugin
 
 import (
-	"errors"
+	"fmt"
 
 	"github.com/graphql-go/graphql/gqlerrors"
 )
@@ -11,7 +11,7 @@ type Error struct {
 	extensions map[string]any
 }
 
-var _ gqlerrors.ExtendedError = &UserError{}
+var _ gqlerrors.ExtendedError = &Error{}
 
 func (e *Error) Error() string {
 	return e.source.Error()
@@ -26,7 +26,7 @@ func (e *Error) Extensions() map[string]any {
 }
 
 func NewError(httpStatus int, code string, message string, args ...any) error {
-	source := errors.Errorf(message, args...)
+	source := fmt.Errorf(message, args...)
 	err := &Error{
 		source: source,
 		extensions: map[string]any{
