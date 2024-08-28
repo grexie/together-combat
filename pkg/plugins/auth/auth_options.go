@@ -1,4 +1,4 @@
-package plugin
+package auth
 
 type TogetherRole = string
 
@@ -24,18 +24,6 @@ const (
 	TokenTypeRefresh TokenType = "refresh"
 	TokenTypeAccess TokenType = "access"
 	TokenTypeKeyManagement TokenType = "key"
-)
-
-type Permission = string
-
-const (
-	TogetherPermissionOwner Permission = "together:owner"
-	TogetherPermissionAdmin Permission = "together:admin"
-	TogetherPermissionDeveloper Permission = "together:developer"
-	TogetherPermissionManager Permission = "together:manager"
-	TogetherPermissionSupport Permission = "together:support"
-	TogetherPermissionUser Permission = "together:user"
-	TogetherPermissionLogin Permission = "together:login"
 )
 
 type AuthOptions struct {

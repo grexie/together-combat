@@ -9,6 +9,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/graphql-go/graphql"
+	"github.com/grexie/together-compat/v2/pkg/plugins/auth"
 	"github.com/redis/go-redis/v9"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -42,7 +43,7 @@ type TogetherServer interface {
 	Anonymize(alias string, ctx context.Context, id *primitive.ObjectID) (*string, error)
 	MustAnonymize(alias string, ctx context.Context, id primitive.ObjectID) string
 	Deanonymize(alias string, ctx context.Context, id *string) (*primitive.ObjectID, error)
-	Auth(options AuthOptions, fn ...graphql.FieldResolveFn) graphql.FieldResolveFn
+	Auth(options auth.AuthOptions, fn ...graphql.FieldResolveFn) graphql.FieldResolveFn
 
 	RegisterCommand(name string, command TogetherCommand)
 	ExecuteCommand(ctx context.Context, name string, args ...string) error
