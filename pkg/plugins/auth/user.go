@@ -56,6 +56,7 @@ type User interface {
 
 	KeyEncryptingKey() *[]byte
 	KeyEncryptingKeySalt() *[]byte
+	KeyEncryptingKeyRaw() *string
 	SetKeyEncryptingKey(keyEncryptingKeySalt []byte, keyEncryptingKey []byte)
 	UnsetKeyEncryptingKey()
 	WithKeyEncryptingKey(keyEncryptingKeySalt []byte, keyEncryptingKey []byte) User
